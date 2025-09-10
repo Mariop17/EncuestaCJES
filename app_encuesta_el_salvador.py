@@ -7,8 +7,8 @@ import webbrowser
 df = pd.read_excel("Links Encuesta 2025 - El Salvador.xlsx", sheet_name="Consolidado", engine="openpyxl")
 
 # Crear la aplicación web
-st.set_page_config(page_title="Encuestas El Salvador 2025", layout="centered")
-st.title("Encuestas El Salvador 2025")
+st.set_page_config(page_title="Encuesta Creciendo Juntos 2025", layout="centered")
+st.title("Encuesta Creciendo Juntos 2025")
 st.write("Ingrese el código del empleado para ver su información y acceder a la encuesta.")
 
 # Entrada del código
