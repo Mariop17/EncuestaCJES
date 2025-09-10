@@ -7,7 +7,7 @@ import webbrowser
 df = pd.read_excel("Links Encuesta 2025 - El Salvador.xlsx", sheet_name="Consolidado", engine="openpyxl")
 
 # Crear la aplicación web
-st.set_page_config(page_title="Encuesta Creciendo Juntos 2025", layout="centered")
+st.set_page_config(page_title="Encuestas El Salvador 2025", layout="centered")
 st.title("Encuestas El Salvador 2025")
 st.write("Ingrese el código del empleado para ver su información y acceder a la encuesta.")
 
@@ -16,7 +16,7 @@ codigo = st.text_input("Código del empleado")
 
 # Buscar y mostrar resultados
 if codigo:
-    resultado = df[df['Código'].astype(str) == codigo]
+    resultado = df[df['Código'].astype(str) == codigo.strip()]
     if not resultado.empty:
         nombre = resultado.iloc[0]['Nombres']
         apellido = resultado.iloc[0]['Apellidos']
@@ -28,8 +28,7 @@ if codigo:
         st.text_area("Link de Encuesta", value=link, height=100)
 
         # Botón para abrir el link
-        if st.button("Abrir Encuesta en el Navegador"):
-            webbrowser.open_new_tab(link)
+        st.markdown(f"[Abrir Encuesta en el Navegador]({link})", unsafe_allow_html=True)
     else:
         st.error("Código no encontrado. Verifique e intente nuevamente.")
 
